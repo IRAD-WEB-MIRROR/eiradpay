@@ -1,0 +1,58 @@
+/* pay.e-irad.org: Talasbank payment gateway for state services. A bank site of the early 2010s on purpose. */
+html { background: #e9edf3; }
+body { margin: 0; font: 12px/1.45 Verdana, Geneva, Tahoma, sans-serif; color: #222; }
+a { color: #123e7c; }
+a:hover { color: #c9962b; }
+.page { width: 980px; max-width: 100%; margin: 0 auto; background: #fff; box-shadow: 0 0 8px rgba(0,0,0,.15); }
+.top { background: linear-gradient(#1a4a8e, #123e7c); border-bottom: 4px solid #c9962b; padding: 14px 18px; display: flex; align-items: center; gap: 18px; }
+.top img { height: 44px; }
+.top .gw { color: #cfe0f7; font-size: 11px; border-left: 1px solid #3f6aa6; padding-left: 16px; }
+.top .gw b { display: block; color: #fff; font-size: 14px; letter-spacing: .02em; }
+.top .langs { margin-left: auto; font-size: 11px; white-space: nowrap; }
+.top .langs a { color: #cfe0f7; margin-left: 8px; }
+.top .langs a.on { color: #fff; font-weight: bold; text-decoration: none; }
+.strip { background: #f6eedb; border-bottom: 1px solid #e2d2a6; padding: 5px 18px; font-size: 11px; color: #5a4a1a; }
+.strip b { color: #9a2a1a; }
+.cols { display: flex; align-items: flex-start; }
+.side { width: 200px; flex: none; padding: 14px 0 20px 14px; }
+.side ul { list-style: none; margin: 0; padding: 0; border: 1px solid #c9d3e2; }
+.side li a { display: block; padding: 7px 10px 7px 20px; border-bottom: 1px solid #dde4ee; text-decoration: none; background: #f4f7fb url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='8'%3E%3Cpath d='M0 0l6 4-6 4z' fill='%23c9962b'/%3E%3C/svg%3E") 9px 50% no-repeat; }
+.side li a:hover, .side li a.on { background-color: #123e7c; color: #fff; }
+.side li:last-child a { border-bottom: 0; }
+.ssl { margin-top: 14px; border: 1px solid #c9d3e2; padding: 8px; font-size: 10px; color: #3d4b5c; text-align: center; background: #fbfcfe; }
+.ssl svg { display: block; margin: 0 auto 4px; }
+.main { flex: 1; min-width: 0; padding: 14px 18px 24px; }
+h1 { font: bold 17px Arial, Helvetica, sans-serif; color: #123e7c; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 1px dotted #9fb2cc; }
+h2 { font: bold 13px Arial, Helvetica, sans-serif; color: #123e7c; margin: 16px 0 6px; }
+.panel { border: 1px solid #c9d3e2; border-radius: 4px; margin: 0 0 14px; }
+.panel .ph { background: linear-gradient(#f7f9fc, #e3e9f2); border-bottom: 1px solid #c9d3e2; padding: 6px 10px; font-weight: bold; color: #123e7c; border-radius: 4px 4px 0 0; }
+.panel .pb { padding: 10px 12px; }
+table.f td { padding: 4px 6px; vertical-align: middle; }
+table.f td:first-child { text-align: right; color: #3d4b5c; white-space: nowrap; }
+input[type=text], select { font: 12px Verdana, Geneva, sans-serif; padding: 3px 4px; border: 1px solid #8fa3bf; background: #fff; }
+input[type=text] { width: 220px; max-width: 100%; box-sizing: border-box; }
+.btn { font: bold 12px Verdana, Geneva, sans-serif; color: #fff; background: linear-gradient(#2a62b0, #123e7c); border: 1px solid #0d2f60; border-radius: 3px; padding: 5px 14px; cursor: pointer; }
+.btn.gold { background: linear-gradient(#e0b04a, #c9962b); border-color: #a07520; color: #2b1d00; }
+.btn.grey { background: linear-gradient(#fafafa, #dedede); border-color: #aaa; color: #333; }
+.err { color: #b0201a; font-size: 11px; }
+table.d { border-collapse: collapse; width: 100%; }
+table.d th, table.d td { border: 1px solid #c9d3e2; padding: 4px 7px; text-align: left; vertical-align: top; }
+table.d th { background: #eef2f8; color: #123e7c; font-weight: bold; }
+table.d td.n { text-align: right; white-space: nowrap; }
+.box { border: 1px solid #c9d3e2; background: #f8fafd; padding: 8px 10px; margin: 10px 0; }
+.box.red { border-color: #e0b0aa; background: #fff3f1; color: #6d1a12; }
+.box.ok { border-color: #a9d2a9; background: #f0f9f0; color: #1d5a1d; }
+.box.warn { border-color: #e2d2a6; background: #fffaea; color: #5a4a1a; }
+.bar { height: 14px; background: #e3e9f2; border: 1px solid #9fb2cc; margin: 6px 0; }
+.bar i { display: block; height: 100%; background: repeating-linear-gradient(45deg, #2a62b0 0 8px, #3d76c4 8px 16px); }
+.slip { border: 1px dashed #333; padding: 10px 12px; margin: 10px 0; font-family: "Courier New", Courier, monospace; font-size: 12px; background: #fff; }
+.slip .hd { display: flex; justify-content: space-between; border-bottom: 1px solid #333; margin-bottom: 6px; padding-bottom: 4px; font-weight: bold; }
+.small { font-size: 10px; color: #5a6b85; }
+.foot { border-top: 4px solid #c9962b; background: #123e7c; color: #cfe0f7; font-size: 10px; padding: 10px 18px; }
+.foot a { color: #fff; }
+@media (max-width: 760px) {
+  .top { flex-wrap: wrap; } .top .gw { border-left: 0; padding-left: 0; } .top .langs { margin-left: 0; width: 100%; }
+  .cols { flex-direction: column; } .side { width: auto; padding: 10px 12px 0; } .side ul { display: flex; flex-wrap: wrap; } .side li a { padding: 6px 10px 6px 18px; border-right: 1px solid #dde4ee; } .ssl { display: none; }
+  .main { padding: 12px; } table.f td { display: block; text-align: left !important; padding: 2px 0; }
+}
+@media print { .top .langs, .side, .strip, .foot, .noprint { display: none !important; } .page { box-shadow: none; } }
